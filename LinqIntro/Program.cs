@@ -24,13 +24,7 @@ var numbersOverFiveLinq = numbers.Where(n => n > 5).ToList();
 
 numbersOverFive.ForEach(n => Console.WriteLine(n + " Siffran är över 5 LINQ"));
 
-// Man kan tänka så här...
-// Linq loopar igenom varje iteration och skapa en metod som liknar denna
 
-// static bool NumIsOverFive(int n)
-// {
-//     return n > 5;
-// }
 
 Console.WriteLine("======================================================");
 //STEAM STEAM STEAM STEAM ///////////////////////////////////////////////////////////////////////
@@ -57,13 +51,13 @@ foreach (var g in gameList.Where(g => g.SteamScore >= scoreInput).OrderByDescend
 }
 
 // Exempel 2
-var scoreMatch = gameList
+var newGameListByScore = gameList
     .Where(g => g.SteamScore >= scoreInput)
     .OrderByDescending(g => g.Name)
     .ToList();
 
 //Skriv ut med foreach ELLER .ForEach
-foreach (var game in scoreMatch)
+foreach (var game in newGameListByScore)
 {
     Console.WriteLine($"{game.Name} Score: {game.SteamScore} ");
 
@@ -71,10 +65,18 @@ foreach (var game in scoreMatch)
 
 //scoreMatch.ForEach(g => Console.WriteLine($"{g.Name} Score: {g.SteamScore}"));
 
+
+
+
+
+
+
+
+// ///////////////////////////////////////////////////////////////////////
 // Här kollar vi om ALLA spel har ett SteamScore på 9 eller högre (returnerar False!)
 bool allHave9ScoreOrBetter = gameList.All(game => game.SteamScore >= 9);
 
-// ///////////////////////////////////////////////////////////////////////
+
 
 
 
